@@ -48,11 +48,12 @@ namespace ExpenseOrg.Service.Controllers
       }
 
             [HttpPost]
-
-        public string PostLoginUser(User user)
+         
+        public HttpResponseMessage PostLoginUser(User _user)
         {
+            User user = _user as User;
             //check if its Login or new user.
-
+            List<Folder> lstUserFolders = new List<Folder>();
             if (string.IsNullOrEmpty(user.lastname))
             {
                 if (!string.IsNullOrEmpty(user.email) && !string.IsNullOrEmpty(user.password))
@@ -63,20 +64,33 @@ namespace ExpenseOrg.Service.Controllers
                         var cmd = conn.CreateCommand();
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.CommandText = "prcLogin";
-                        var allParams = new MySqlParameterCollection();
-                        allParams.Add(new MySqlParameter("suppliedEmail", user.email.Trim()));
-                        cmd.Parameters = allParams;
+                        var emailParam = new MySqlParameter("suppliedEmail", user.email.Trim());
+                        var passwordParam = new MySqlParameter("suppliedPassword", user.password.Trim());
+                        cmd.Parameters.Add(emailParam);
+
+                       var reader= cmd.ExecuteReader();
+                       
+                        Folder fold = null;
+                        while (reader.Read())
+                        {
+                           
+                            string Id = reader["Id"].ToString(); ;
+                            string name = reader["name"].ToString();
+                            string userEmail = reader["useremail"].ToString();
+                            fold = new Folder { Id = Id, name = name, useremail = userEmail };
+                            lstUserFolders.Add(fold);
+                        }
 
                     }
 
                 }
             }
-
-
-
-        }
+            return null;// lstUserFolders;
 
 
         }
+
+
+        
     }
 }

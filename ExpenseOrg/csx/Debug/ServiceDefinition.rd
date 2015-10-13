@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExpenseOrg" generation="1" functional="0" release="0" Id="d912489f-4725-42fb-8558-657870796bd1" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExpenseOrg" generation="1" functional="0" release="0" Id="ac522016-751d-4a22-a623-e6f7cf92e1b7" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="ExpenseOrgGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -167,14 +167,14 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="63ba11ed-22d1-4a1a-9c2a-ffbe893ffb62" ref="Microsoft.RedDog.Contract\ServiceContract\ExpenseOrgContract@ServiceDefinition">
+    <implementation Id="aa978040-a60e-449e-b687-350d4df6f81a" ref="Microsoft.RedDog.Contract\ServiceContract\ExpenseOrgContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="abf17303-006b-4a38-bedf-565544277f7a" ref="Microsoft.RedDog.Contract\Interface\ExpenseOrg.Service:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="771cfb5a-78aa-4fa8-847b-ade1080115d2" ref="Microsoft.RedDog.Contract\Interface\ExpenseOrg.Service:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/ExpenseOrg/ExpenseOrgGroup/ExpenseOrg.Service:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="2b1f9032-ae77-4d8f-a6e2-95ee5e72234b" ref="Microsoft.RedDog.Contract\Interface\ExpenseOrg.Service:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition">
+        <interfaceReference Id="3f6c83b5-a27b-4617-85fa-e586e0cac59a" ref="Microsoft.RedDog.Contract\Interface\ExpenseOrg.Service:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/ExpenseOrg/ExpenseOrgGroup/ExpenseOrg.Service:Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" />
           </inPort>
